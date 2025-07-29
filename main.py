@@ -48,7 +48,7 @@ def main():
                 sys.exit()
             for shot_p in shots:
                 if shot_p.check_collisions(ast_thing) == True:
-                    ast_thing.kill()
+                    ast_thing.split()
                     shot_p.kill()
         
         
