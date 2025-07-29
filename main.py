@@ -46,6 +46,11 @@ def main():
         for ast_thing in asteroids:
             if player_char.check_collisions(ast_thing) == True:
                 sys.exit()
+            for shot_p in shots:
+                if shot_p.check_collisions(ast_thing) == True:
+                    ast_thing.kill()
+                    shot_p.kill()
+        
         
         # player_char.draw(screen)
         pygame.display.flip()
