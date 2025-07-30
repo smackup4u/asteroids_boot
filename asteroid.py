@@ -15,17 +15,16 @@ class Asteroid(circleshape.CircleShape):
         current_position = self.position
         current_velocity = self.velocity
         new_radius = self.radius - ASTEROID_MIN_RADIUS
+        random_angle = random.uniform(20, 50)
         self.kill()
 
         if self.radius == ASTEROID_MIN_RADIUS:
             return
         else:
             asteroid_new1 = Asteroid(current_position.x, current_position.y, new_radius)
-            #asteroid_new1.velocity.rotate(current_velocity.rotate() - 40)
-            asteroid_new1.velocity = current_velocity.rotate(60)
+            asteroid_new1.velocity = current_velocity.rotate(random_angle) * 1.2
             asteroid_new2 = Asteroid(current_position.x, current_position.y, new_radius)
-            #asteroid_new2.velocity.rotate(current_velocity.rotate() + 40)
-            asteroid_new2.velocity = current_velocity.rotate(170)
+            asteroid_new2.velocity = current_velocity.rotate(-random_angle) * 1.2
         
 
     def update(self, dt):
